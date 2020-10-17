@@ -8,6 +8,9 @@ import { FormComponent } from './form/form.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { FormService } from './form.service'
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +23,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    FormService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

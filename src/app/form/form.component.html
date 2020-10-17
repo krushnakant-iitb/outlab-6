@@ -1,7 +1,7 @@
 <div>
   <h2>Feedback Form</h2>
   
-  <form [formGroup]="feedbackForm">
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
 
     <label>
       Name:

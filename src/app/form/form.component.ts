@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormService } from '../form.service';
 
 
@@ -13,10 +13,10 @@ import { FormService } from '../form.service';
 export class FormComponent implements OnInit{
 
   feedbackForm= new FormGroup({
-    name : new FormControl(''),
-    email : new FormControl(''),
-    feedback : new FormControl(),
-    comment : new FormControl('')
+    name : new FormControl('', Validators.required),
+    email : new FormControl('', Validators.required),
+    feedback : new FormControl('',Validators.required),
+    comment : new FormControl('',Validators.required)
   });
   
   title;
@@ -26,11 +26,13 @@ export class FormComponent implements OnInit{
 
 
   ngOnInit(){
-    //this.feedbackForm.patchValue(this._formService.getFormData());
-    //this._formService.getBeta()
-    //.subscribe(data => this.feedbackForm.setValue(data))
     this._formService.getBeta()
       .subscribe(data => this.feedbackForm.setValue(data));
   }
 
+  onSubmit(){
+    
+    this._formService.post(this.feedbackForm.value)
+      .subscribe();
+  }
 }

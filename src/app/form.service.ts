@@ -16,7 +16,10 @@ interface a_form{
 @Injectable()
 export class FormService {
 
-  private URL='http://cs251-outlab-6.herokuapp.com/initial_values/';
+  private URL='https://cs251-outlab-6.herokuapp.com/initial_values/';
+
+  private other_url= 'https://cs251-outlab-6.herokuapp.com/add_new_feedback/';
+
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +29,12 @@ export class FormService {
 
   getBeta(): Observable<myform>{
     return this.http.get<myform>(this.URL);
+  }
+
+  post(userData): Observable<myform>{
+    return this.http.post<myform>(this.other_url, userData);
+    //return ({"name": "saurav", "email": "sauravgarg@cse.iitb.ac.in", "feedback": "Okay", "comment": "This field can be empty :)"});
+
   }
 
 }

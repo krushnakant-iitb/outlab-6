@@ -1,17 +1,38 @@
-<label>
-    Name:
-    <input type="text" [formControl]="name">
-</label>
+<div>
+  <h2>Feedback Form</h2>
   
-  
-  
-  <p>
-    Value: {{ name.value }}
-  </p>
-  
-  
-  <p>
-    <button (click)="updateName()">Update Name</button>
-  </p>
-  
-  
+  <form [formGroup]="feedbackForm">
+
+    <label>
+      Name:
+      <input type="text" formControlName="name">
+    </label>
+    <br>
+
+    <label>
+      Email:
+      <input type="text" formControlName="email">
+    </label>
+    <br>
+    <br>
+
+    <label>
+      Feedback: <br>
+      <input type="radio" id="great" name="gender" value="great" formControlName="feedback">
+      <label for="great">Great!!!</label> <br>
+      <input type="radio" id="okay" name="gender" value="okay" formControlName="feedback">
+      <label for="okay">Okay</label> <br>
+      <input type="radio" id="notgood" name="gender" value="notgood" formControlName="feedback">
+      <label for="notgood">Not good :/</label> <br>
+    </label>
+    <br>
+
+    <label for="comments">
+      Comments:<br>
+    </label>
+    <textarea id="comments" formControlName="comments" rows="4" cols="250" style="max-width: 100%;"></textarea>
+    
+  <button type="submit">Submit</button>
+  </form>
+
+</div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -7,14 +7,14 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./form.component.scss']
 })
 
-export class FormComponent{
+export class FormComponent {
 
-  name = new FormControl('');
-  email= new FormControl('');
+  feedbackForm= new FormGroup({
+    name : new FormControl(''),
+    email : new FormControl(''),
+    feedback : new FormControl(),
+    comments : new FormControl('')
+  });
 
-
-  updateName() {
-    this.name.setValue('Nancy');
-  }
 
 }

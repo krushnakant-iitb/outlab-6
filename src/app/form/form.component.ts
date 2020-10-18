@@ -31,8 +31,20 @@ export class FormComponent implements OnInit{
   }
 
   onSubmit(){
-    
     this._formService.post(this.feedbackForm.value)
-      .subscribe();
+      .subscribe(
+        response => this.correct(),
+        error => this.error(error)
+      );
+  }
+
+  correct(){
+    alert("Dear "+this.feedbackForm.value.name + ", your form was submitted.");
+    this.feedbackForm.reset();
+  }
+
+  error(error){
+    alert("Dear "+this.feedbackForm.value.name + ", your form was not submitted. Try again.");
+    console.log(error);
   }
 }

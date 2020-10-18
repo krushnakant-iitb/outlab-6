@@ -20,6 +20,7 @@ export class FormService {
 
   private other_url= 'https://cs251-outlab-6.herokuapp.com/add_new_feedback/';
 
+  private __url= 'http://localhost:3000/enroll/';
 
   constructor(private http: HttpClient) { }
 
